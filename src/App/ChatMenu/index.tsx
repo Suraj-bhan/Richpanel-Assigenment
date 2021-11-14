@@ -26,7 +26,6 @@ function ChatMenu() {
            <MenuIcon/>
            <Typography>
              Converstions
-             
            </Typography>
            </Grid>
            <Grid item xs>
