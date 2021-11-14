@@ -1,1 +1,1 @@
-# Richpanel-Assigenment
+# Richpanel-Assignment
