@@ -13,8 +13,6 @@ const useStyles = makeStyles((theme) => ({
   containerGrid: {
     border:'0.5px solid rgba(0,0,0,0.2)',
     height:'100%'
-    // borderRight:'none',
-    // borderLeft:'none'
     // [theme.breakpoints.down('sm')]:{
     //    background: 'linear-gradient(to bottom, #16222A, #3B6073)',
     // }
@@ -69,7 +67,7 @@ function ProfileMenu() {
            <Typography variant="h6">
              Amit RG
            </Typography>
-           <Typography variant="subtitle1">
+           <Typography variant="body2">
              Offline
            </Typography>
            </Grid>

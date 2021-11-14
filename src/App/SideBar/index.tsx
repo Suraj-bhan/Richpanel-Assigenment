@@ -24,16 +24,16 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
       content: '""',
     },
   },
-  '@keyframes ripple': {
-    '0%': {
-      transform: 'scale(.8)',
-      opacity: 1,
-    },
-    '100%': {
-      transform: 'scale(2.4)',
-      opacity: 0,
-    },
-  },
+  // '@keyframes ripple': {
+  //   '0%': {
+  //     transform: 'scale(.8)',
+  //     opacity: 1,
+  //   },
+  //   '100%': {
+  //     transform: 'scale(2.4)',
+  //     opacity: 0,
+  //   },
+  // },
 }));
 
 
@@ -45,37 +45,57 @@ function SideBar() {
   };
 
     return (
-        <Grid item container 
+      <Grid
+        item
+        container
         direction="column"
         // justifyContent="center"
         alignItems="center"
-        style={{height:'100vh',
-        border:'1px solid black'}}>
+        style={{
+          height: "100vh",
+          width: "75px",
+          // border: "1px solid black",
+          background: "0e5295",
+        }}
+      >
         <Grid>
           {/* <Link> */}
-            <img src="Logos/sidebar-logo.png" alt="richpanel" width='75px'/>
+          <img src="Logos/sidebar-logo.png" alt="richpanel" width="75px" />
           {/* </Link> */}
         </Grid>
-        <Tabs orientation="vertical" value={value} onChange={handleChange} aria-label="icon tabs example">
-            <Tab icon={<PhoneIcon />} aria-label="phone" />
-            <Tab icon={<FavoriteIcon />} aria-label="favorite" />
-            <Tab icon={<PersonPinIcon />} aria-label="person" />
-        </Tabs>
-        <Grid item container direction="column" justifyContent="flex-end" >
-        <Grid item>
-        <StyledBadge
-          overlap="circular"
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-          variant="dot"
+        <Tabs
+          orientation="vertical"
+          value={value}
+          onChange={handleChange}
+          aria-label="icon tabs example"
+          style={{ width: "75px" }}
         >
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        </StyledBadge>
+          <Tab icon={<PhoneIcon />} aria-label="phone" style={{ width: "75px" }} />
+          <Tab
+            icon={<FavoriteIcon />}
+            aria-label="favorite"
+            style={{ width: "75px" }}
+          />
+          <Tab
+            icon={<PersonPinIcon />}
+            aria-label="person"
+            style={{ width: "75px" }}
+          />
+        </Tabs>
+        <Grid item container xs alignItems="flex-end" justifyContent='center'>
+          <Grid item style={{marginBottom:'24px'}}>
+            <StyledBadge
+              overlap="circular"
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              variant="dot"
+            >
+              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            </StyledBadge>
+          </Grid>
+         
         </Grid>
-
-        </Grid>
-
-        </Grid>
-      
+      </Grid>
+    
     )
 }
 

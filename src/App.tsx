@@ -11,24 +11,42 @@ const theme = createTheme();
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-    <div className="App">
-      <Grid container>
-      <Grid item xs={1}>
-      <SideBar/>
-      </Grid>
-      <Grid item xs={3}>
-      <ChatMenu/>
-      </Grid>
-      <Grid item xs={5}>
-      <Conversation/>
-      </Grid>
-      <Grid item xs={3}>
-      <ProfileMenu/>
-      </Grid>
-      </Grid>
-    </div>
-    </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <div className="App">
+            <Grid
+              container
+              // justifyContent="center"
+              // justifyItems="center"
+              alignItems="center"
+              // alignContent="center"
+            >
+              <Grid item  style={{background:'#0e5295'}}>
+                <SideBar />
+              </Grid>
+
+              <Grid 
+              container
+              item
+              // justifyContent="center"
+              // justifyItems="center"
+              // xs
+              alignItems="center"
+              // alignContent="center"
+              >
+                <Grid item xs={3}>
+                  <ChatMenu />
+                </Grid>
+                <Grid item xs={5}>
+                  <Conversation />
+                </Grid>
+                <Grid item xs={3}>
+                  <ProfileMenu /> 
+                </Grid>
+              </Grid>
+            </Grid>
+          </div>
+        </ThemeProvider>
+
   );
 }
 
