@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import { Grid } from '@mui/material';
 import './App.css';
+import ChatMenu from './App/ChatMenu';
+import Conversation from './App/Conversation';
+import ProfileMenu from './App/ProfileMenu';
+import SideBar from './App/SideBar';
+import {createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme();
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Grid container>
+      <Grid item xs={1}>
+      <SideBar/>
+      </Grid>
+      <Grid item xs={3}>
+      <ChatMenu/>
+      </Grid>
+      <Grid item xs={5}>
+      <Conversation/>
+      </Grid>
+      <Grid item xs={3}>
+      <ProfileMenu/>
+      </Grid>
+      </Grid>
     </div>
+    </ThemeProvider>
   );
 }
 
