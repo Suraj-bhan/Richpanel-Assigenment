@@ -8,6 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CallIcon from '@mui/icons-material/Call';
 import React from 'react';
 import { createStyles, makeStyles } from '@mui/styles';
+import CircleIcon from '@mui/icons-material/Circle';
 
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
@@ -63,12 +64,12 @@ function ProfileMenu() {
       <Grid item container direction="column" className={classes.containerGrid}>
         <Grid item container className={classes.profileGrid} justifyContent="space-between" alignItems="center">
            <Grid container direction="column" item alignItems="center">
-           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{ width: 70, height: 70 }} className={classes.Avatar}/>
+           <Avatar alt="Remy Sharp" src="men.jpg" sx={{ width: 70, height: 70 }} className={classes.Avatar}/>
            <Typography variant="h6">
              Amit RG
            </Typography>
-           <Typography variant="body2">
-             Offline
+           <Typography variant="body2" style={{color:'rgba(0,0,0,0.5)'}}>
+           <CircleIcon  style={{width:'8px',height:'8px'}}/> Offline
            </Typography>
            </Grid>
            <Grid container justifyContent="center" item xs>

@@ -6,33 +6,42 @@ import Conversation from './App/Conversation';
 import ProfileMenu from './App/ProfileMenu';
 import SideBar from './App/SideBar';
 import {createTheme, ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const theme = createTheme();
 
 function App() {
   return (
         <ThemeProvider theme={theme}>
-          <div className="App">
-            <Grid
+          <div className="App"
+          //  style={{display:'flex', alignItems:'center'}} 
+           >
+          {/* <Routes>
+              <Route path="/about-us">
+                <AboutUs />
+              </Route>
+              <Route path="/join-as-interviewer">
+                <Interviewer />
+              </Route>
+              <Route path="/terms-and-conditions">
+                <TermsConditions />
+              </Route>
+              <Route path="/lets-talk">
+                <LetsTalk />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Routes> */}
+              <Grid
               container
-              // justifyContent="center"
-              // justifyItems="center"
-              alignItems="center"
-              // alignContent="center"
-            >
-              <Grid item  style={{background:'#0e5295'}}>
+               >
+              <Grid item xs={1} 
+              style={{background:'#0e5295'}}
+              >
                 <SideBar />
               </Grid>
 
-              <Grid 
-              container
-              item
-              // justifyContent="center"
-              // justifyItems="center"
-              // xs
-              alignItems="center"
-              // alignContent="center"
-              >
                 <Grid item xs={3}>
                   <ChatMenu />
                 </Grid>
@@ -42,7 +51,6 @@ function App() {
                 <Grid item xs={3}>
                   <ProfileMenu /> 
                 </Grid>
-              </Grid>
             </Grid>
           </div>
         </ThemeProvider>

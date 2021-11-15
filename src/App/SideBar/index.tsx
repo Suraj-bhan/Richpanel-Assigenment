@@ -53,7 +53,7 @@ function SideBar() {
         alignItems="center"
         style={{
           height: "100vh",
-          width: "75px",
+          // width: "75px",
           // border: "1px solid black",
           background: "0e5295",
         }}
@@ -63,25 +63,37 @@ function SideBar() {
           <img src="Logos/sidebar-logo.png" alt="richpanel" width="75px" />
           {/* </Link> */}
         </Grid>
-        <Tabs
+        {/* <Tabs
           orientation="vertical"
           value={value}
           onChange={handleChange}
           aria-label="icon tabs example"
-          style={{ width: "75px" }}
+          // style={{ width: "75px" }}
         >
-          <Tab icon={<PhoneIcon />} aria-label="phone" style={{ width: "75px" }} />
+          <Tab icon={<PhoneIcon />} aria-label="phone"  />
           <Tab
             icon={<FavoriteIcon />}
             aria-label="favorite"
-            style={{ width: "75px" }}
+            // style={{ width: "75px" }}
           />
           <Tab
             icon={<PersonPinIcon />}
             aria-label="person"
-            style={{ width: "75px" }}
+            // style={{ width: "75px" }}
           />
-        </Tabs>
+        </Tabs> */}
+        
+        <div style={{background:'white',width:'inherit',height:"80px", alignItems:'center', justifyContent:'center', display:'flex' }} >
+          <img src="Icons/inbox-solid.svg" alt='inbox' width="40px" height="40px" />
+        </div>
+        <div style={{background:'0e5295',width:'inherit',height:"80px", alignItems:'center', justifyContent:'center', display:'flex' }} >
+          <img src="Icons/user-friends-solid.svg" alt='inbox' width="40px" height="40px" />
+        </div>
+        <div style={{background:'0e5295',width:'inherit',height:"80px", alignItems:'center', justifyContent:'center', display:'flex' }} >
+          <img src="Icons/chart-bar-regular.svg" alt='inbox' width="40px" height="40px" />
+        </div>
+
+          
         <Grid item container xs alignItems="flex-end" justifyContent='center'>
           <Grid item style={{marginBottom:'24px'}}>
             <StyledBadge
@@ -89,7 +101,7 @@ function SideBar() {
               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               variant="dot"
             >
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              <Avatar alt="Remy Sharp" src="Suraj.jpg" />
             </StyledBadge>
           </Grid>
          

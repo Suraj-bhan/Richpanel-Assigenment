@@ -68,7 +68,7 @@ function ChatPreview() {
       <Grid item container className={classes.containerGrid} style={{padding:'12px'}} alignItems='center'>
         {/* <Grid item container > */}
 
-          <CheckBoxOutlineBlankIcon style={{marginRight:'12px'}}/>
+          <CheckBoxOutlineBlankIcon style={{marginRight:'12px', color:'#9e9e9e'}}/>
 
           <Grid item xs={8}>
           <Typography textAlign='left' variant='subtitle2'>
@@ -79,7 +79,7 @@ function ChatPreview() {
           </Typography>
           </Grid>
           <Grid item xs={2}>
-          <Typography>
+          <Typography variant='body2'  textAlign='right' style={{paddingBottom:'16px'}}>
             10m
           </Typography>
           </Grid>
