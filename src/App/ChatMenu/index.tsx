@@ -4,9 +4,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonPinIcon from '@mui/icons-material/PersonPin';
 import MenuIcon from '@mui/icons-material/Menu';
 import ReplayIcon from '@mui/icons-material/Replay';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createStyles, makeStyles } from '@mui/styles';
 import ChatPreview from './ChatPreview';
+import db from '../../FirebaseComp';
 
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
@@ -28,6 +29,21 @@ const useStyles = makeStyles((theme) => ({
 
 function ChatMenu() {
   const classes = useStyles();
+  const [Converstions,setConversations]=React.useState<any>();
+
+  useEffect(() => {
+    const unsubscribe = db.collection('conversations').onSnapshot((snapshot:any) => setConversations(snapshot.docs.map((doc:any)=>({
+            id: doc.id,
+            data: doc.data(),
+            }))
+        )
+        );
+        return () => {
+            unsubscribe();
+        }
+    }, [])
+
+
     return (
       <Grid item container className={classes.containerGrid} direction="column">
       <Grid item container className={classes.profileGrid} alignItems="center">
@@ -44,9 +60,13 @@ function ChatMenu() {
         </Grid>
       </Grid>
       <Grid item container>
-        <ChatPreview/>
-        <ChatPreview/>
-        <ChatPreview/>
+        {Converstions && Converstions.map((chat:any)=>(
+          <ChatPreview key={chat.id} id={chat.id} data={chat.data}/>
+        )
+        )}
+        {/* <ChatPreview/> */}
+        {/* <ChatPreview/>
+        <ChatPreview/> */}
       </Grid>
     </Grid>
 

@@ -2,6 +2,7 @@ import { Avatar, Button, Grid, Paper, Tab, Tabs, Typography } from '@mui/materia
 import React from 'react';
 import { createStyles, makeStyles } from '@mui/styles';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
@@ -18,9 +19,21 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function ChatPreview() {
+interface ChatPreviewProps{
+  id?:string;
+  data?:any;
+}
+
+const ChatPreview:React.FC<ChatPreviewProps> = ({
+ id,
+ data,
+  }: ChatPreviewProps) =>{
   const classes = useStyles();
+
+  console.log(data);
     return (
+    
+      <Link to={`/${id}`} style={{textDecoration:'none', display:'border-box', width:'inherit', color:'inherit'}} >
       <Grid item container className={classes.containerGrid} style={{padding:'12px'}} alignItems='center'>
         {/* <Grid item container > */}
 
@@ -28,7 +41,7 @@ function ChatPreview() {
 
           <Grid item xs={8}>
           <Typography textAlign='left' variant='subtitle2'>
-            Amit RG
+            {data.User}
           </Typography>
           <Typography textAlign='left' variant='body2'>
             Facebook DM
@@ -46,11 +59,12 @@ function ChatPreview() {
           </Grid>
           <Grid item xs={12}>
           <Typography noWrap textAlign='left' variant='body2'>
-          There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+           {data.messages && data.messages.message}
           </Typography>
           </Grid>
         {/* </Grid> */}
       </Grid>
+      </Link>
     )
 }
 

@@ -1,5 +1,5 @@
 
-import { Grid } from '@mui/material';
+import { darkScrollbar, Grid } from '@mui/material';
 import './App.css';
 import ChatMenu from './App/ChatMenu';
 import Conversation from './App/Conversation';
@@ -9,12 +9,23 @@ import {createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './App/login';
 import Home from './App/Home';
-import React from 'react'
+import React, { useEffect } from 'react'
+import db from './FirebaseComp';
 
 const theme = createTheme();
 
 function App() {
   const [loginData,setLoginData]=React.useState<any>();
+
+  useEffect(() => {
+
+    if(loginData){
+     db.collection("conversations").add({
+       User: loginData && loginData.name,
+     })
+    }
+    
+  }, [])
 
   const handleLoginData=(data:any)=>{
    data && setLoginData(data);
