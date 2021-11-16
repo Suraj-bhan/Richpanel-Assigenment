@@ -7,33 +7,35 @@ import ProfileMenu from './App/ProfileMenu';
 import SideBar from './App/SideBar';
 import {createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './App/login';
+import Home from './App/Home';
+import React from 'react'
 
 const theme = createTheme();
 
 function App() {
+  const [loginData,setLoginData]=React.useState<any>();
+
+  const handleLoginData=(data:any)=>{
+   data && setLoginData(data);
+  }
+
   return (
         <ThemeProvider theme={theme}>
           <div className="App"
           //  style={{display:'flex', alignItems:'center'}} 
            >
-          {/* <Routes>
-              <Route path="/about-us">
-                <AboutUs />
-              </Route>
-              <Route path="/join-as-interviewer">
-                <Interviewer />
-              </Route>
-              <Route path="/terms-and-conditions">
-                <TermsConditions />
-              </Route>
-              <Route path="/lets-talk">
-                <LetsTalk />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Routes> */}
-              <Grid
+              { !loginData ? (
+                <Login sendLoginData={handleLoginData}/>
+              ) : (
+              <Router>
+              <Routes>
+                {/* <Route path="/login" element={}/> */}
+                <Route path="/" element={ <Home loginData={loginData} />}/>
+              </Routes>
+             </Router>
+              )}
+              {/* <Grid
               container
                >
               <Grid item xs={1} 
@@ -51,7 +53,7 @@ function App() {
                 <Grid item xs={3}>
                   <ProfileMenu /> 
                 </Grid>
-            </Grid>
+            </Grid> */}
           </div>
         </ThemeProvider>
 

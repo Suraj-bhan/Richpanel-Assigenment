@@ -21,35 +21,6 @@ const useStyles = makeStyles((theme) => ({
     border:'1px solid rgba(0,0,0,0.2)',
     borderRight:'none',
     borderLeft:'none'
-  },
-  customerGrid:{
-    background:'#e8eaf6',
-    // height:'100%',
-    display:'flex'
-  },
-  Avatar:{
-    margin:'12px 0px',
-  },
-  Button:{
-    margin:'12px',
-    width:'100px',
-  },
-  paper:{
-    width:'85%',
-    // height:'100%',
-    padding:'12px 16px',
-    margin:'16px',
-    borderRadius:'10px'
-  },
-  paperTitle:{
-    margin:'6px 0px'
-  },
-  paperItems:{
-    margin:'8px 0px'
-  },
-  viewMoreButton:{
-    color: '#1976d2',
-    cursor:'pointer'
   }
   
 }));

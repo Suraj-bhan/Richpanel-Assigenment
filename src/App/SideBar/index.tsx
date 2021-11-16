@@ -36,8 +36,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   // },
 }));
 
+interface SideBarProps{
+  loginData?:any;
+}
 
-function SideBar() {
+const SideBar:React.FC<SideBarProps> = ({
+loginData,
+  }: SideBarProps) =>{
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event:any, newValue:any) => {
@@ -60,7 +65,7 @@ function SideBar() {
       >
         <Grid>
           {/* <Link> */}
-          <img src="Logos/sidebar-logo.png" alt="richpanel" width="75px" />
+          <img src="logos/sidebar-logo.png" alt="richpanel" width="75px" />
           {/* </Link> */}
         </Grid>
         {/* <Tabs
@@ -101,7 +106,7 @@ function SideBar() {
               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               variant="dot"
             >
-              <Avatar alt="Remy Sharp" src="Suraj.jpg" />
+              <Avatar alt="Remy Sharp" src={loginData && loginData.picture && loginData.picture && loginData.picture.data && loginData.picture.data.url} />
             </StyledBadge>
           </Grid>
          

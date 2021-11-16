@@ -1,9 +1,4 @@
 import { Avatar, Button, Grid, Paper, Tab, Tabs, Typography } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import PersonPinIcon from '@mui/icons-material/PersonPin';
-import MenuIcon from '@mui/icons-material/Menu';
-import ReplayIcon from '@mui/icons-material/Replay';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CallIcon from '@mui/icons-material/Call';
 import React from 'react';
@@ -33,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     margin:'12px 0px',
   },
   Button:{
-    margin:'12px',
+    margin:'12px!important',
     width:'100px',
   },
   paper:{
@@ -41,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     // height:'100%',
     padding:'12px 16px',
     margin:'16px',
-    borderRadius:'10px'
+    borderRadius:'10px!important'
   },
   paperTitle:{
     margin:'6px 0px'

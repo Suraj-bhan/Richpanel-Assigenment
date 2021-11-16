@@ -1,11 +1,4 @@
 import { Avatar, Button, Grid, Paper, Tab, Tabs, Typography } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import PersonPinIcon from '@mui/icons-material/PersonPin';
-import MenuIcon from '@mui/icons-material/Menu';
-import ReplayIcon from '@mui/icons-material/Replay';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import CallIcon from '@mui/icons-material/Call';
 import React from 'react';
 import { createStyles, makeStyles } from '@mui/styles';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
@@ -21,46 +14,9 @@ const useStyles = makeStyles((theme) => ({
     // [theme.breakpoints.down('sm')]:{
     //    background: 'linear-gradient(to bottom, #16222A, #3B6073)',
     // }
-  },
-  profileGrid:{
-    height:'250px',  
-    border:'1px solid rgba(0,0,0,0.2)',
-    borderRight:'none',
-    borderLeft:'none'
-  },
-  customerGrid:{
-    background:'#e8eaf6',
-    // height:'100%',
-    display:'flex'
-  },
-  Avatar:{
-    margin:'12px 0px',
-  },
-  Button:{
-    margin:'12px',
-    width:'100px',
-  },
-  paper:{
-    width:'85%',
-    // height:'100%',
-    padding:'12px 16px',
-    margin:'16px',
-    borderRadius:'10px'
-  },
-  paperTitle:{
-    margin:'6px 0px'
-  },
-  paperItems:{
-    margin:'8px 0px'
-  },
-  viewMoreButton:{
-    color: '#1976d2',
-    cursor:'pointer'
   }
 
 }));
-
-
 
 function ChatPreview() {
   const classes = useStyles();
