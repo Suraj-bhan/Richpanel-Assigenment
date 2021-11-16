@@ -43,12 +43,16 @@ const Chat:React.FC<ChatProps> = ({
   const classes = useStyles();
   const{conversationId}=useParams();
   const [messages,setMessages]=React.useState<any>([]);
+  const [input, setInput] = React.useState<string>("");
 
   useEffect(() => {
     if(conversationId){
       db.collection("conversations").doc(conversationId).collection("messages").orderBy("Timestamp","asc").onSnapshot((snapshot) => setMessages(snapshot.docs.map((doc) => doc.data())))
        }
+    
    }, [conversationId])
+
+
 
   const handleDirection=()=>{
       if(isAdmin) return 'row-reverse'; 

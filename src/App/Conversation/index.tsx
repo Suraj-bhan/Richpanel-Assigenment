@@ -6,6 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ReplayIcon from '@mui/icons-material/Replay';
 import React, { useEffect } from 'react'
 import db from '../../FirebaseComp';
+import firebase from 'firebase/compat/app';
 
 import { createStyles, makeStyles } from '@mui/styles';
 import Chat from './Chat';
@@ -45,6 +46,17 @@ function Conversation() {
    }
   }, [conversationId])
 
+  const sendMessage = (e:any) => {
+    e.preventDefault();
+    db.collection("conversations").doc(conversationId).collection("messages").add({
+        message: text,
+        Name: userName,
+        Timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+
+    })
+    setText("");
+}
+
     return (
       <Grid item container className={classes.containerGrid} direction="column" style={{background:'rgba(0,0,0,0.04)',}}>
         <Grid item container className={classes.profileGrid} justifyContent="space-between" alignItems="center">
@@ -66,7 +78,10 @@ function Conversation() {
           {/* <input type='text' value={text} onChange={(e)=>setText(e.target.value)} /> */}
         </Grid>
         <Grid item style={{background:'transparent',}}>
-        <OutlinedInput placeholder="Message the user" value={text} onChange={(e)=>setText(e.target.value)} size='small' style={{width:'85%', marginTop:'12px',}}/>
+          <form>
+        <OutlinedInput placeholder={`Message ${userName}`} value={text} onChange={(e)=>setText(e.target.value)} size='small' style={{width:'85%', marginTop:'12px',}}/>
+        <button onClick={sendMessage} type="submit" style={{display:'none'}}>Send a message</button>
+        </form>
         </Grid>
        
       </Grid>
