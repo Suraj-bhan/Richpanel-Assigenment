@@ -1,9 +1,11 @@
 import { Avatar, Button, Grid, Paper, Tab, Tabs, Typography } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CallIcon from '@mui/icons-material/Call';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createStyles, makeStyles } from '@mui/styles';
 import CircleIcon from '@mui/icons-material/Circle';
+import db from '../../FirebaseComp';
+import { useParams } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
@@ -53,15 +55,27 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+
 function ProfileMenu() {
   const classes = useStyles();
+  const {conversationId}=useParams();
+  const [data,setData]=useState<any>();
+
+  useEffect(() => {
+    if(conversationId){
+       db.collection('conversations').doc(conversationId).onSnapshot((snapshot:any)=>{
+         setData(snapshot.data());
+       })
+    }
+   }, [conversationId])
+
     return (
       <Grid item container direction="column" className={classes.containerGrid}>
         <Grid item container className={classes.profileGrid} justifyContent="space-between" alignItems="center">
            <Grid container direction="column" item alignItems="center">
-           <Avatar alt="Remy Sharp" src="men.jpg" sx={{ width: 70, height: 70 }} className={classes.Avatar}/>
+           <Avatar alt="Remy Sharp" src={data && data.Picture} sx={{ width: 70, height: 70 }} className={classes.Avatar}/>
            <Typography variant="h6">
-             Amit RG
+            {data && data.User}
            </Typography>
            <Typography variant="body2" style={{color:'rgba(0,0,0,0.5)'}}>
            <CircleIcon  style={{width:'8px',height:'8px'}}/> Offline
@@ -70,7 +84,9 @@ function ProfileMenu() {
            <Grid container justifyContent="center" item xs>
  
            <Button variant="outlined" size="small" className={classes.Button}><CallIcon/> Call</Button>
+           <a href={`https://www.facebook.com/profile.php?id=101706635677407`} target='_blank' rel="noreferrer" style={{textDecoration:'none'}}>
            <Button variant="outlined" size="small" className={classes.Button}><AccountCircleIcon/> Profile</Button>
+           </a>
 
            </Grid>
         </Grid>
@@ -86,7 +102,7 @@ function ProfileMenu() {
             Email
            </Typography>
            <Typography variant='subtitle2'>
-             someemail@email.com
+             {data && data.email}
            </Typography>
            </Grid>
 
@@ -95,7 +111,7 @@ function ProfileMenu() {
            First Name
            </Typography>
            <Typography variant='subtitle2'>
-           Suraj Bhan
+           {data && data.User}
            </Typography>
            </Grid>
            
@@ -104,7 +120,7 @@ function ProfileMenu() {
            Last Name
            </Typography>
            <Typography variant='subtitle2'>
-           Mundotiya
+           ''
            </Typography>
            </Grid>
            

@@ -20,8 +20,14 @@ function App() {
   useEffect(() => {
 
     if(loginData){
+    //  var isUser=false;
+    //  db.collection('conversations').doc(ConversationId).onSnapshot((snapshot:any)=>{
+    //   setUserName(snapshot.data().User);
+    // })
      db.collection("conversations").add({
        User: loginData && loginData.name,
+       Picture: loginData && loginData.picture && loginData.picture && loginData.picture.data && loginData.picture.data.url,
+       email:loginData && loginData.email
      })
     }
     
@@ -43,6 +49,7 @@ function App() {
               <Routes>
                 {/* <Route path="/login" element={}/> */}
                 <Route path="/" element={ <Home loginData={loginData} />}/>
+                <Route path="/chat/:conversationId" element={ <Home loginData={loginData} />}/>
               </Routes>
              </Router>
               )}

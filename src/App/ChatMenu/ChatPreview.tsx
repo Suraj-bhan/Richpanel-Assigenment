@@ -33,7 +33,7 @@ const ChatPreview:React.FC<ChatPreviewProps> = ({
   console.log(data);
     return (
     
-      <Link to={`/${id}`} style={{textDecoration:'none', display:'border-box', width:'inherit', color:'inherit'}} >
+      <Link to={`/chat/${id}`} style={{textDecoration:'none', display:'border-box', width:'inherit', color:'inherit'}} >
       <Grid item container className={classes.containerGrid} style={{padding:'12px'}} alignItems='center'>
         {/* <Grid item container > */}
 

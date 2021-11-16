@@ -4,8 +4,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonPinIcon from '@mui/icons-material/PersonPin';
 import MenuIcon from '@mui/icons-material/Menu';
 import ReplayIcon from '@mui/icons-material/Replay';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createStyles, makeStyles } from '@mui/styles';
+import { useParams } from 'react-router';
+import db from '../../FirebaseComp';
 // import ChatPreview from './ChatPreview';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +41,14 @@ const Chat:React.FC<ChatProps> = ({
    isAdmin,
     }: ChatProps) => {
   const classes = useStyles();
+  const{conversationId}=useParams();
+  const [messages,setMessages]=React.useState<any>([]);
+
+  useEffect(() => {
+    if(conversationId){
+      db.collection("conversations").doc(conversationId).collection("messages").orderBy("Timestamp","asc").onSnapshot((snapshot) => setMessages(snapshot.docs.map((doc) => doc.data())))
+       }
+   }, [conversationId])
 
   const handleDirection=()=>{
       if(isAdmin) return 'row-reverse'; 
@@ -60,24 +70,21 @@ const handleTextAlign=()=>{
         <Avatar alt="Remy Sharp" src="men.jpg" sx={{ width: 35, height: 35 }} />
         </Grid>
         <Grid item container xs direction='column' alignContent={handleJustification()}>
+          {messages.map((message:any)=>
+           (<>
             <Paper elevation={1} className={classes.chatPaper}>
             <Typography variant="body2" textAlign="left">
-            Richpanel Customer Data Platform uses Artificial Intelligence to predict links between customers and devices and store these relations in a graph database
-            </Typography>
-            </Paper>
-            <Paper elevation={1} className={classes.chatPaper}>
-            <Typography variant="body2" textAlign="left">
-            Richpanel Customer Data Platform uses Artificial Intelligence to predict links between customers and devices and store these relations in a graph database
-            </Typography>
-            </Paper>
-            <Paper elevation={1} className={classes.chatPaper}>
-            <Typography variant="body2" textAlign="left">
-            Richpanel Customer Data Platform uses Artificial Intelligence to predict links between customers and devices and store these relations in a graph database
+            {message.message}
             </Typography>
             </Paper>
             <Typography variant="caption" textAlign={handleTextAlign()} style={{marginTop:'12px'}}>
-            Amit RG - Mar 05, 2:22 AM
+            {message.Name}<span>{new Date(message.Timestamp?.toDate()).toUTCString()}</span>
           </Typography>
+          </>
+           )
+           )}
+
+
         </Grid>
         
       </Grid>
