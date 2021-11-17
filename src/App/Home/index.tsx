@@ -1,9 +1,4 @@
 import { Grid, Paper, Tab, Tabs, Typography } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import PersonPinIcon from '@mui/icons-material/PersonPin';
-import MenuIcon from '@mui/icons-material/Menu';
-import ReplayIcon from '@mui/icons-material/Replay';
 import React from 'react'
 import { createStyles, makeStyles } from '@mui/styles';
 import FacebookLogin from 'react-facebook-login';
@@ -62,24 +57,19 @@ const People:React.FC<PeopleProps> = ({
         >
         <SideBar loginData={loginData}/>
         </Grid>
-      <Grid container item xs className={classes.containerGrid} alignItems='center' direction='column'>
-          <img src='Logos/sidebar-logo.png' alt='richpanel'/>
+      <Grid container item xs className={classes.containerGrid} alignItems='center' justifyContent='space-between' direction='column'>
+         <Grid item>
+          <img src='Logos/sidebarlogo.png' alt='richpanel'/>
           <Typography variant="h3" className={classes.headerText}>
             Welcome to Richpanel
           </Typography>
-          {/* <Paper className={classes.paper}>
-            <div style={{display:'grid', alignItems:'center'}}>
-            <Typography style={{marginBottom:'12px'}}>
-                Log into Facebook Account
-            </Typography>
-            <FacebookLogin
-            appId="1054993238665007"
-            autoLoad={true}
-            fields="name,email,picture"
-            onClick={componentClicked}
-            callback={responseFacebook} />
+          </Grid>
+          {/* <Paper className={classes.paper}> */}
+            <div style={{display:'grid', alignItems:'center', marginBottom:'12px'}}>
+             <img src='welcome.svg' alt='welcome' height='90%' width='90%'/>
+            
             </div>
-          </Paper> */}
+          {/* </Paper> */}
       </Grid>
       </Grid>
 

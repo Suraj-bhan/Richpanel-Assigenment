@@ -53,7 +53,7 @@ loginData,
   };
 
   const handleBackground=(path:any)=>{
-    if(location.pathname==path) return 'white';
+    if(location.pathname===path) return 'white';
     else return '#0e5295';
   }
   
@@ -78,7 +78,7 @@ loginData,
       >
         <Grid>
           <Link to='/' style={{width:'inherit'}}>
-          <img src="/logos/sidebar-logo.png" alt="richpanel" width="75px" />
+          <img src="/logos/sidebarlogo.png" alt="richpanel" width="75px" />
           </Link>
         </Grid>
         {/* <Tabs

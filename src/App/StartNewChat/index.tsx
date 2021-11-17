@@ -32,14 +32,15 @@ const StartNewChat:React.FC<StartNewChatProps> = ({
   }: StartNewChatProps) =>{
   const classes = useStyles();
 
-  const createNewChat=()=>{
+  const createNewChat=(e:any)=>{
+    e.preventDefault();
     if(loginData){
     db.collection("conversations").add({
     User: loginData && loginData.name,
     Picture: loginData && loginData.picture && loginData.picture && loginData.picture.data && loginData.picture.data.url ? loginData.picture.data.url: '',
     email:loginData && loginData.email ? loginData.email : ''
     })
-  }
+   }
 }
 
   // console.log(data);
@@ -50,6 +51,7 @@ const StartNewChat:React.FC<StartNewChatProps> = ({
           <Button onClick={createNewChat} style={{width:'inherit', height:'inherit',padding:'12px'}}>
               Start a new conversation <ChatIcon fontSize='small' style={{marginLeft:'6px'}}/>
           </Button>
+          
       </Grid>
     
     )

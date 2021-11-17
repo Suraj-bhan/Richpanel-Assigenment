@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   Button:{
     margin:'12px!important',
     width:'100px',
+    color:'#757575!important',
+    borderColor:'#757575!important',
+    
   },
   paper:{
     width:'85%',

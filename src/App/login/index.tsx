@@ -51,7 +51,7 @@ const Login:React.FC<LoginProps> = ({
     }
     return (
       <Grid container className={classes.containerGrid} alignItems='center' direction='column'>
-          <img src='/Logos/sidebar-logo.png' alt='richpanel'/>
+          <img src='/Logos/sidebarlogo.png' alt='richpanel'/>
           <Typography variant="h3" className={classes.headerText}>
             Welcome to Richpanel
           </Typography>
