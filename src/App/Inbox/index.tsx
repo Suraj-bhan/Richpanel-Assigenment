@@ -32,7 +32,7 @@ loginData,
                 <Conversation loginData={loginData}/>
             </Grid>
             <Grid item xs={3}>
-                <ProfileMenu /> 
+                <ProfileMenu loginData={loginData}/> 
             </Grid>
             </Grid>
         </div>

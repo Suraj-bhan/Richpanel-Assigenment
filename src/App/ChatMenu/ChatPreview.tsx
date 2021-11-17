@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@mui/styles';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
@@ -27,11 +28,18 @@ const ChatPreview:React.FC<ChatPreviewProps> = ({
  data,
   }: ChatPreviewProps) =>{
   const classes = useStyles();
+  const{conversationId}=useParams();
+
+  const handleActiveConversationBackground=()=>{
+    if(conversationId===id){
+      return 'rgba(0,0,0,0.08)';
+    }
+  }
 
     return (
     
       <Link to={`/chat/${id}`} style={{textDecoration:'none', display:'border-box', width:'inherit', color:'inherit'}} >
-      <Grid item container className={classes.containerGrid} style={{padding:'12px'}} alignItems='center'>
+      <Grid item container className={classes.containerGrid} style={{padding:'12px', width:'inherit', background: handleActiveConversationBackground(),}} alignItems='center'>
           <CheckBoxOutlineBlankIcon style={{marginRight:'12px', color:'#9e9e9e'}}/>
 
           <Grid item xs={8}>
@@ -52,9 +60,10 @@ const ChatPreview:React.FC<ChatPreviewProps> = ({
             {data.subject ? data.subject:'Awesome Product'}
           </Typography>
           </Grid>
-          <Grid item xs={12}>
-          <Typography noWrap textAlign='left' variant='body2'>
-           {data.messages && data.messages.message}
+          <Grid item xs={12} style={{width:'inherit'}}>
+          <Typography noWrap textAlign='left' variant='body2' style={{width:'inherit'}}>
+           {/* {data.messages && data.messages.message} */}
+           Form dialogs allow users to fill out form fields within a dialog. For example, if your site prompts for potential subscribers to fill in their email address, they can fill out the email field and touch 'Submit'.
           </Typography>
           </Grid>
       </Grid>

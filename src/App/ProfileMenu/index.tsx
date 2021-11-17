@@ -53,7 +53,12 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function ProfileMenu() {
+interface ProfileMenuProps{
+  loginData?:any;
+}
+const ProfileMenu:React.FC<ProfileMenuProps> = ({
+ loginData
+  }: ProfileMenuProps) =>  {
   const classes = useStyles();
   const {conversationId}=useParams();
   const [data,setData]=useState<any>();
@@ -66,6 +71,19 @@ function ProfileMenu() {
     }
    }, [conversationId])
 
+   const handleOnlineColor=()=>{
+      if(loginData && data && loginData.name===data.User){
+        return 'rgba(47, 168, 47,1)';
+      }
+      else return 'rgba(0, 0, 0, 0.5)';
+    }
+    const handleOnlineText=()=>{
+      if(loginData && loginData.name===data.User){
+        return 'Online';
+      }
+      else return 'Offline';
+    }
+
     return (
       <Grid item container direction="column" className={classes.containerGrid}>
         <Grid item container className={classes.profileGrid} justifyContent="space-between" alignItems="center">
@@ -74,8 +92,8 @@ function ProfileMenu() {
            <Typography variant="h6">
             {data && data.User}
            </Typography>
-           <Typography variant="body2" style={{color:'rgba(0,0,0,0.5)'}}>
-           <CircleIcon  style={{width:'8px',height:'8px'}}/> Offline
+           <Typography variant="body2" style={{color:handleOnlineColor(),}}>
+           <CircleIcon  style={{width:'8px',height:'8px'}}/> {handleOnlineText()}
            </Typography>
            </Grid>
            <Grid container justifyContent="center" item xs>

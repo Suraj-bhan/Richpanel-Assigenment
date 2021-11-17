@@ -57,7 +57,7 @@ loginData,
           <ReplayIcon />
         </Grid>
       </Grid>
-      <Grid item style={{overflow:'auto', height:`calc(100vh - 65px)`, position:'relative',}} alignItems='flex-start'>
+      <Grid item style={{overflow:'auto', height:`calc(100vh - 65px)`, position:'relative', width:'inherit'}} alignItems='flex-start'>
          <StartNewChat loginData={loginData}/>
         {Converstions && Converstions.map((chat:any)=>(
           <ChatPreview key={chat.id} id={chat.id} data={chat.data}/>
