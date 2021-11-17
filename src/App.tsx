@@ -26,12 +26,12 @@ function App() {
     // })
      db.collection("conversations").add({
        User: loginData && loginData.name,
-       Picture: loginData && loginData.picture && loginData.picture && loginData.picture.data && loginData.picture.data.url,
-       email:loginData && loginData.email
+       Picture: loginData && loginData.picture && loginData.picture && loginData.picture.data && loginData.picture.data.url ? loginData.picture.data.url: '',
+       email:loginData && loginData.email ? loginData.email : ''
      })
     }
     
-  }, [])
+  }, [loginData])
 
   const handleLoginData=(data:any)=>{
    data && setLoginData(data);

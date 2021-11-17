@@ -31,28 +31,36 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+interface ConversationProps{
+  loginData?:any;
+}
 
-function Conversation() {
+const Conversation:React.FC<ConversationProps> = ({
+loginData,
+  }: ConversationProps) =>{
   const classes = useStyles();
   const [text,setText]=React.useState<string>();
   const {conversationId}=useParams();
   const [userName,setUserName]=React.useState<string>('');
+  const [isUser,setUser]=React.useState<boolean>(false);
 
   useEffect(() => {
    if(conversationId){
       db.collection('conversations').doc(conversationId).onSnapshot((snapshot:any)=>{
         setUserName(snapshot.data().User);
+        if(loginData && snapshot.data().User == loginData.name )setUser(true);
       })
-   }
+      }
+      
   }, [conversationId])
 
   const sendMessage = (e:any) => {
     e.preventDefault();
     db.collection("conversations").doc(conversationId).collection("messages").add({
         message: text,
-        Name: userName,
+        name:loginData && loginData.name,
         Timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-
+        picture: loginData && loginData.picture && loginData.picture && loginData.picture.data && loginData.picture.data.url
     })
     setText("");
 }
@@ -69,7 +77,7 @@ function Conversation() {
            </Grid>
         </Grid>
         <Grid item style={{overflow:'auto', height:`calc(100vh - 130px)`, position:'relative',  }}>
-          <Chat isAdmin={false}/>
+          <Chat isAdmin={isUser} loginData={loginData}/>
           {/* <Chat isAdmin={true}/> */}
           {/* <Chat isAdmin={true}/> */}
           {/* <Chat isAdmin={true}/> */}

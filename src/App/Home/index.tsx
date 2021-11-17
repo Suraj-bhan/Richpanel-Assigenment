@@ -34,7 +34,7 @@ loginData,
                 <ChatMenu />
             </Grid>
             <Grid item xs={5}>
-                <Conversation />
+                <Conversation loginData={loginData}/>
             </Grid>
             <Grid item xs={3}>
                 <ProfileMenu /> 

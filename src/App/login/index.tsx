@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
     height:'300px',
     padding:'12px 16px',
     margin:'32px 0px 0px 0px',
-    borderRadius:'10px!important'
+    borderRadius:'10px!important',
+    display:'grid',
+    alignItems:'center'
   
   },
 
@@ -54,7 +56,7 @@ const Login:React.FC<LoginProps> = ({
             Welcome to Richpanel
           </Typography>
           <Paper className={classes.paper}>
-            <div>
+            <div style={{display:'grid', alignItems:'center'}}>
             <Typography style={{marginBottom:'12px'}}>
                 Log into Facebook Account
             </Typography>
