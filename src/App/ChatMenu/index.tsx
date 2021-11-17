@@ -43,7 +43,6 @@ function ChatMenu() {
         }
     }, [])
 
-
     return (
       <Grid item container className={classes.containerGrid} direction="column">
       <Grid item container className={classes.profileGrid} alignItems="center">
@@ -59,7 +58,7 @@ function ChatMenu() {
           <ReplayIcon />
         </Grid>
       </Grid>
-      <Grid item container style={{height:`calc(100vh - 65px)`, overflow:'scroll'}} >
+      <Grid item container style={{height:`calc(100vh - 65px)`, overflow:'auto'}} alignItems='flex-start' direction='column'>
         {Converstions && Converstions.map((chat:any)=>(
           <ChatPreview key={chat.id} id={chat.id} data={chat.data}/>
         )

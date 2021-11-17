@@ -30,7 +30,7 @@ const ChatPreview:React.FC<ChatPreviewProps> = ({
   }: ChatPreviewProps) =>{
   const classes = useStyles();
 
-  console.log(data);
+  // console.log(data);
     return (
     
       <Link to={`/chat/${id}`} style={{textDecoration:'none', display:'border-box', width:'inherit', color:'inherit'}} >
