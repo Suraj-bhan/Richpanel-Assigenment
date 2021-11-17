@@ -8,6 +8,7 @@ import React, { useEffect } from 'react'
 import { createStyles, makeStyles } from '@mui/styles';
 import ChatPreview from './ChatPreview';
 import db from '../../FirebaseComp';
+import StartNewChat from '../StartNewChat';
 
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
@@ -26,8 +27,13 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
+interface ChatMenuProps{
+  loginData?:any;
+}
 
-function ChatMenu() {
+const ChatMenu:React.FC<ChatMenuProps> = ({
+loginData,
+  }: ChatMenuProps) => {
   const classes = useStyles();
   const [Converstions,setConversations]=React.useState<any>();
 
@@ -58,7 +64,8 @@ function ChatMenu() {
           <ReplayIcon />
         </Grid>
       </Grid>
-      <Grid item container style={{height:`calc(100vh - 65px)`, overflow:'auto'}} alignItems='flex-start' direction='column'>
+      <Grid item style={{overflow:'auto', height:`calc(100vh - 65px)`, position:'relative',}} alignItems='flex-start'>
+         <StartNewChat loginData={loginData}/>
         {Converstions && Converstions.map((chat:any)=>(
           <ChatPreview key={chat.id} id={chat.id} data={chat.data}/>
         )

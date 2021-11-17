@@ -58,8 +58,8 @@ loginData,
   }
   
   const HandleImageSrc=(path:string, src:string)=>{
-    if(location.pathname===path) return `Icons/${src}-blue.svg`;
-    else return `Icons/${src}-white.svg`;
+    if(location.pathname===path) return `/Icons/${src}-blue.svg`;
+    else return `/Icons/${src}-white.svg`;
   }
 
     return (
@@ -78,7 +78,7 @@ loginData,
       >
         <Grid>
           <Link to='/' style={{width:'inherit'}}>
-          <img src="logos/sidebar-logo.png" alt="richpanel" width="75px" />
+          <img src="/logos/sidebar-logo.png" alt="richpanel" width="75px" />
           </Link>
         </Grid>
         {/* <Tabs

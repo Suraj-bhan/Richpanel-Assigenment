@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
     border:'0.5px solid rgba(0,0,0,0.2)',
+    borderLeft:'none',
+    borderRight:'none',
     cursor:'pointer',
     '&:hover': {
      background: 'rgba(0,0,0,0.04)',

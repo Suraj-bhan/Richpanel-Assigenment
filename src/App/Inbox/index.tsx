@@ -17,20 +17,20 @@ loginData,
 
         useEffect(() => {
 
-        if(loginData){
-            var isUser=false;
-            db.collection('conversations').onSnapshot((snapshot:any) => (snapshot.docs.map((doc:any)=>{
-            if(doc.data().User===loginData.name) isUser=true;
-            })))
+        // if(loginData){
+        //     var isUser=false;
+        //     db.collection('conversations').onSnapshot((snapshot:any) => (snapshot.docs.map((doc:any)=>{
+        //     if(doc.data().User===loginData.name) isUser=true;
+        //     })))
             
-            if(!isUser){
-            db.collection("conversations").add({
-            User: loginData && loginData.name,
-            Picture: loginData && loginData.picture && loginData.picture && loginData.picture.data && loginData.picture.data.url ? loginData.picture.data.url: '',
-            email:loginData && loginData.email ? loginData.email : ''
-            })
-        }
-        }
+        //     if(!isUser){
+        //     db.collection("conversations").add({
+        //     User: loginData && loginData.name,
+        //     Picture: loginData && loginData.picture && loginData.picture && loginData.picture.data && loginData.picture.data.url ? loginData.picture.data.url: '',
+        //     email:loginData && loginData.email ? loginData.email : ''
+        //     })
+        // }
+        // }
         
         }, [loginData])
 
@@ -51,7 +51,7 @@ loginData,
             </Grid>
 
             <Grid item xs={3}>
-                <ChatMenu />
+                <ChatMenu loginData={loginData}/>
             </Grid>
             <Grid item xs={5}>
                 <Conversation loginData={loginData}/>

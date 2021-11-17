@@ -14,16 +14,16 @@ const useStyles = makeStyles((theme) => ({
   containerGrid: {
     border:'0.5px solid rgba(0,0,0,0.2)',
     height:'100vh',
-    background:'#0e5295',
+    // background:'#0e5295',
   },
   headerText:{
     color:'white'
   },
   paper:{
-    width:'300px',
-    height:'300px',
+    width:'80%',
+    height:'80%',
     padding:'12px 16px',
-    margin:'32px 0px 0px 0px',
+    // margin:'32px 0px 0px 0px',
     borderRadius:'10px!important',
     display:'grid',
     alignItems:'center'
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface PeopleProps{
-    loginData?:any
+  loginData?:any
   sendLoginData?:any;
 }
 
@@ -61,22 +61,15 @@ const People:React.FC<PeopleProps> = ({
         >
         <SideBar loginData={loginData}/>
         </Grid>
-      <Grid container item xs className={classes.containerGrid} alignItems='center' direction='column'>
-          <img src='Logos/sidebar-logo.png' alt='richpanel'/>
-          <Typography variant="h3" className={classes.headerText}>
-            Welcome to Richpanel
-          </Typography>
+      <Grid container item xs className={classes.containerGrid} alignItems='center' justifyContent='center' direction='column'>
+          {/* <img src='Logos/sidebar-logo.png' alt='richpanel'/> */}
+          
           <Paper className={classes.paper}>
-            <div style={{display:'grid', alignItems:'center'}}>
-            <Typography style={{marginBottom:'12px'}}>
-                Log into Facebook Account
-            </Typography>
-            {/* <FacebookLogin
-            appId="1054993238665007"
-            autoLoad={true}
-            fields="name,email,picture"
-            onClick={componentClicked}
-            callback={responseFacebook} /> */}
+            <div style={{display:'grid', alignItems:'center', justifyContent:'center'}}>
+             <img src='build.svg' alt='no graph' height='87%' width='87%'/>
+             <Typography variant='h5'>
+                 Hold on! Page build in progress
+             </Typography>
             </div>
           </Paper>
       </Grid>

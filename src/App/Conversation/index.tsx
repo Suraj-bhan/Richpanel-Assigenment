@@ -26,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
     height:'60px',  
     border:'1px solid rgba(0,0,0,0.2)',
     borderRight:'none',
-    borderLeft:'none'
+    borderLeft:'none',
+    background:'white'
   },
 
 }));
