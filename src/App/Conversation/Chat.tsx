@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   chatPaper:{
     margin:'8px 0px 2px 0px',
-    padding:'6px',
+    padding:'10px',
     maxWidth:'400px'
   },
   
@@ -41,6 +41,7 @@ const Chat:React.FC<ChatProps> = ({
   const [userData,setUserData]=React.useState<any>();
   const [lastTime,setLastTime]=React.useState<any>();
   const [showTime,setShowTime]=React.useState<boolean>(true);
+  let options:any = { month: 'short', day: 'numeric', hour: 'numeric',minute: 'numeric' };
 
 
   useEffect(() => {
@@ -96,8 +97,8 @@ const handleTextAlign=(user:string)=>{
             </Typography>
             </Paper>
             {showTime && 
-            <Typography noWrap variant="caption" textAlign={handleTextAlign(message.name)} style={{marginTop:'12px', maxWidth:'200px'}}>
-            {message.name.substr(0,message.name.indexOf(' '))}<span style={{marginLeft:'6px'}}>{new Date(message.Timestamp?.toDate()).toUTCString()}</span>
+            <Typography variant="caption" textAlign={handleTextAlign(message.name)} style={{marginTop:'12px',}}>
+            {message.name.substr(0,message.name.indexOf(' '))}<span style={{marginLeft:'6px'}}>- {new Date(message.Timestamp?.toDate()).toLocaleString('en-US', options)}</span>
             </Typography>
             }
         </Grid>
