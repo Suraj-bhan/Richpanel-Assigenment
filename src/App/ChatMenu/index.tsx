@@ -1,11 +1,8 @@
-import { Grid, Tab, Tabs, Typography } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import PersonPinIcon from '@mui/icons-material/PersonPin';
+import { Grid, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ReplayIcon from '@mui/icons-material/Replay';
 import React, { useEffect } from 'react'
-import { createStyles, makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import ChatPreview from './ChatPreview';
 import db from '../../FirebaseComp';
 import StartNewChat from '../StartNewChat';
@@ -14,9 +11,6 @@ const useStyles = makeStyles((theme) => ({
   containerGrid: {
     border:'0.5px solid rgba(0,0,0,0.2)',
     height:'100%'
-    // [theme.breakpoints.down('sm')]:{
-    //    background: 'linear-gradient(to bottom, #16222A, #3B6073)',
-    // }
   },
   profileGrid:{
     height:'60px',  
@@ -24,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     borderRight:'none',
     borderLeft:'none'
   }
-  
 }));
 
 interface ChatMenuProps{
@@ -70,9 +63,6 @@ loginData,
           <ChatPreview key={chat.id} id={chat.id} data={chat.data}/>
         )
         )}
-        {/* <ChatPreview/> */}
-        {/* <ChatPreview/>
-        <ChatPreview/> */}
       </Grid>
     </Grid>
 

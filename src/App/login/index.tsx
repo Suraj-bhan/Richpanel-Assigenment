@@ -1,13 +1,7 @@
-import { Grid, Paper, Tab, Tabs, Typography } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import PersonPinIcon from '@mui/icons-material/PersonPin';
-import MenuIcon from '@mui/icons-material/Menu';
-import ReplayIcon from '@mui/icons-material/Replay';
+import { Grid, Paper, Typography } from '@mui/material';
 import React from 'react'
-import { createStyles, makeStyles } from '@mui/styles';
+import {makeStyles } from '@mui/styles';
 import FacebookLogin from 'react-facebook-login';
-// import ChatPreview from './ChatPreview';
 
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
@@ -26,10 +20,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius:'10px!important',
     display:'grid',
     alignItems:'center'
-  
   },
-
-  
 }));
 
 interface LoginProps{

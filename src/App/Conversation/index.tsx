@@ -1,26 +1,15 @@
-import { Grid, OutlinedInput, Tab, Tabs, Typography } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import PersonPinIcon from '@mui/icons-material/PersonPin';
-import MenuIcon from '@mui/icons-material/Menu';
-import ReplayIcon from '@mui/icons-material/Replay';
+import { Grid, OutlinedInput, Typography } from '@mui/material';
 import React, { useEffect } from 'react'
 import db from '../../FirebaseComp';
 import firebase from 'firebase/compat/app';
-
-import { createStyles, makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import Chat from './Chat';
 import { useParams } from 'react-router';
-// import { useParams } from 'react-router';
-
 
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
     border:'0.5px solid rgba(0,0,0,0.2)',
     height:'100%'
-    // [theme.breakpoints.down('sm')]:{
-    //    background: 'linear-gradient(to bottom, #16222A, #3B6073)',
-    // }
   },
   profileGrid:{
     height:'60px',  
@@ -49,11 +38,11 @@ loginData,
    if(conversationId){
       db.collection('conversations').doc(conversationId).onSnapshot((snapshot:any)=>{
         setUserName(snapshot.data().User);
-        if(loginData && snapshot.data().User == loginData.name )setUser(true);
+        if(loginData && snapshot.data().User === loginData.name )setUser(true);
       })
       }
       
-  }, [conversationId])
+  }, [conversationId, loginData])
 
   const sendMessage = (e:any) => {
     e.preventDefault();
@@ -79,12 +68,6 @@ loginData,
         </Grid>
         <Grid item style={{overflow:'auto', height:`calc(100vh - 130px)`, position:'relative',  }}>
           <Chat isAdmin={isUser} loginData={loginData}/>
-          {/* <Chat isAdmin={true}/> */}
-          {/* <Chat isAdmin={true}/> */}
-          {/* <Chat isAdmin={true}/> */}
-          
-      
-          {/* <input type='text' value={text} onChange={(e)=>setText(e.target.value)} /> */}
         </Grid>
         <Grid item style={{background:'transparent',}}>
           <form>
@@ -92,7 +75,6 @@ loginData,
         <button onClick={sendMessage} type="submit" style={{display:'none'}}>Send a message</button>
         </form>
         </Grid>
-       
       </Grid>
     )
 }

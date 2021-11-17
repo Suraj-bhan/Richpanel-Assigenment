@@ -1,14 +1,8 @@
-import { Avatar, Grid, Paper, Tab, Tabs, Typography } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import PersonPinIcon from '@mui/icons-material/PersonPin';
-import MenuIcon from '@mui/icons-material/Menu';
-import ReplayIcon from '@mui/icons-material/Replay';
+import { Avatar, Grid, Paper,Typography } from '@mui/material';
 import React, { useEffect } from 'react'
-import { createStyles, makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import { useParams } from 'react-router';
 import db from '../../FirebaseComp';
-// import ChatPreview from './ChatPreview';
 
 const useStyles = makeStyles((theme) => ({
   containerGrid: {
@@ -21,8 +15,6 @@ const useStyles = makeStyles((theme) => ({
     // }
   },
   profileGrid:{
-    // height:'60px',  
-    // border:'1px solid rgba(0,0,0,0.2)',
     borderRight:'none',
     borderLeft:'none'
   },
@@ -109,7 +101,6 @@ const handleTextAlign=(user:string)=>{
             </Typography>
             }
         </Grid>
-        
       </Grid>
        )}
     </Grid>

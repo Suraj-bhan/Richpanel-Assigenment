@@ -1,11 +1,10 @@
 
 import { Grid } from '@mui/material'
-import React, { useEffect } from 'react'
+import React from 'react'
 import ChatMenu from '../ChatMenu'
 import Conversation from '../Conversation'
 import ProfileMenu from '../ProfileMenu'
 import SideBar from '../SideBar'
-import db from '../../FirebaseComp';
 
 interface InboxProps{
     loginData?:any;

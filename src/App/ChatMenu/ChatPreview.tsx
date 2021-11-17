@@ -1,6 +1,6 @@
-import { Avatar, Button, Grid, Paper, Tab, Tabs, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import React from 'react';
-import { createStyles, makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import { Link } from 'react-router-dom';
 
@@ -13,10 +13,6 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
      background: 'rgba(0,0,0,0.04)',
     },
-    // height:'100%'
-    // [theme.breakpoints.down('sm')]:{
-    //    background: 'linear-gradient(to bottom, #16222A, #3B6073)',
-    // }
   }
 
 }));
@@ -32,13 +28,10 @@ const ChatPreview:React.FC<ChatPreviewProps> = ({
   }: ChatPreviewProps) =>{
   const classes = useStyles();
 
-  // console.log(data);
     return (
     
       <Link to={`/chat/${id}`} style={{textDecoration:'none', display:'border-box', width:'inherit', color:'inherit'}} >
       <Grid item container className={classes.containerGrid} style={{padding:'12px'}} alignItems='center'>
-        {/* <Grid item container > */}
-
           <CheckBoxOutlineBlankIcon style={{marginRight:'12px', color:'#9e9e9e'}}/>
 
           <Grid item xs={8}>
@@ -64,7 +57,6 @@ const ChatPreview:React.FC<ChatPreviewProps> = ({
            {data.messages && data.messages.message}
           </Typography>
           </Grid>
-        {/* </Grid> */}
       </Grid>
       </Link>
     )
