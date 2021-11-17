@@ -49,7 +49,7 @@ const ChatPreview:React.FC<ChatPreviewProps> = ({
           </Grid>
           <Grid item xs={12}>
           <Typography textAlign='left' variant='subtitle2' style={{marginTop:'12px'}}>
-            Awesome Product
+            {data.subject ? data.subject:'Awesome Product'}
           </Typography>
           </Grid>
           <Grid item xs={12}>

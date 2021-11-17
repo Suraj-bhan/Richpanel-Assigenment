@@ -50,7 +50,7 @@ loginData,
         </Grid>
         <Grid item xs={8}>
           <Typography variant="h6" textAlign="left">
-            Converstions
+            Conversations
           </Typography>
         </Grid>
         <Grid item xs={2}>
