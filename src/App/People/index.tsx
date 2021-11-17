@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     border:'0.5px solid rgba(0,0,0,0.2)',
     height:'100vh',
     background:'#0e5295',
-    marginTop:'200px'
   },
   headerText:{
     color:'white'
@@ -67,19 +66,19 @@ const People:React.FC<PeopleProps> = ({
           <Typography variant="h3" className={classes.headerText}>
             Welcome to Richpanel
           </Typography>
-          {/* <Paper className={classes.paper}>
+          <Paper className={classes.paper}>
             <div style={{display:'grid', alignItems:'center'}}>
             <Typography style={{marginBottom:'12px'}}>
                 Log into Facebook Account
             </Typography>
-            <FacebookLogin
+            {/* <FacebookLogin
             appId="1054993238665007"
             autoLoad={true}
             fields="name,email,picture"
             onClick={componentClicked}
-            callback={responseFacebook} />
+            callback={responseFacebook} /> */}
             </div>
-          </Paper> */}
+          </Paper>
       </Grid>
       </Grid>
 

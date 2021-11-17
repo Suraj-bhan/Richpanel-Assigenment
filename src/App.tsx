@@ -11,6 +11,10 @@ import Login from './App/login';
 import Home from './App/Home';
 import React, { useEffect } from 'react'
 import db from './FirebaseComp';
+import People from './App/People';
+import Inbox from './App/Inbox';
+import Stats from './App/Stats';
+
 
 const theme = createTheme();
 
@@ -20,10 +24,13 @@ function App() {
   useEffect(() => {
 
     if(loginData){
-    //  var isUser=false;
-    //  db.collection('conversations').doc(ConversationId).onSnapshot((snapshot:any)=>{
-    //   setUserName(snapshot.data().User);
-    // })
+     var isUser=false;
+     const unsubscribe = db.collection('conversations').onSnapshot((snapshot:any) => (snapshot.docs.map((doc:any)=>({
+      id: doc.id,
+      data: doc.data(),
+      }))
+  )
+  );
      db.collection("conversations").add({
        User: loginData && loginData.name,
        Picture: loginData && loginData.picture && loginData.picture && loginData.picture.data && loginData.picture.data.url ? loginData.picture.data.url: '',
@@ -31,7 +38,7 @@ function App() {
      })
     }
     
-  }, [loginData])
+  }, [])
 
   const handleLoginData=(data:any)=>{
    data && setLoginData(data);
@@ -49,7 +56,11 @@ function App() {
               <Routes>
                 {/* <Route path="/login" element={}/> */}
                 <Route path="/" element={ <Home loginData={loginData} />}/>
-                <Route path="/chat/:conversationId" element={ <Home loginData={loginData} />}/>
+                <Route path="/chat" element={ <Inbox loginData={loginData} />}/>
+                <Route path="/chat/:conversationId" element={ <Inbox loginData={loginData} />}/>
+                <Route path="/people" element={ <People loginData={loginData}/>}/>
+                <Route path="/stats" element={ <Stats loginData={loginData} />}/>
+                {/* <Route path="/login" element={ <Login sendLoginData={handleLoginData}/>}/> */}
               </Routes>
              </Router>
               )}

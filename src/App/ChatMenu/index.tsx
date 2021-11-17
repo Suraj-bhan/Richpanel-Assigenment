@@ -59,7 +59,7 @@ function ChatMenu() {
           <ReplayIcon />
         </Grid>
       </Grid>
-      <Grid item container>
+      <Grid item container style={{height:`calc(100vh - 65px)`, overflow:'scroll'}} >
         {Converstions && Converstions.map((chat:any)=>(
           <ChatPreview key={chat.id} id={chat.id} data={chat.data}/>
         )

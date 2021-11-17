@@ -111,7 +111,7 @@ function ProfileMenu() {
            First Name
            </Typography>
            <Typography variant='subtitle2'>
-           {data && data.User}
+           {data && data.User.substring(0, data.User.lastIndexOf(" ") + 1)}
            </Typography>
            </Grid>
            
@@ -120,7 +120,7 @@ function ProfileMenu() {
            Last Name
            </Typography>
            <Typography variant='subtitle2'>
-           ''
+           {data && data.User.substring(data.User.lastIndexOf(" ") + 1, data.User.length)}
            </Typography>
            </Grid>
            

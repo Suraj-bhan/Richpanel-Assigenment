@@ -105,7 +105,7 @@ const handleTextAlign=(user:string)=>{
             </Paper>
             {showTime && 
             <Typography noWrap variant="caption" textAlign={handleTextAlign(message.name)} style={{marginTop:'12px', maxWidth:'200px'}}>
-            {message.name}<span>{new Date(message.Timestamp?.toDate()).toUTCString()}</span>
+            {message.name.substr(0,message.name.indexOf(' '))}<span style={{marginLeft:'6px'}}>{new Date(message.Timestamp?.toDate()).toUTCString()}</span>
             </Typography>
             }
         </Grid>

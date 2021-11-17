@@ -14,17 +14,16 @@ const useStyles = makeStyles((theme) => ({
   containerGrid: {
     border:'0.5px solid rgba(0,0,0,0.2)',
     height:'100vh',
-    background:'#0e5295',
-    marginTop:'200px'
+    // background:'#0e5295',
   },
   headerText:{
     color:'white'
   },
   paper:{
-    width:'300px',
-    height:'300px',
+    width:'80%',
+    height:'80%',
     padding:'12px 16px',
-    margin:'32px 0px 0px 0px',
+    // margin:'32px 0px 0px 0px',
     borderRadius:'10px!important',
     display:'grid',
     alignItems:'center'
@@ -34,15 +33,15 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-interface PeopleProps{
+interface StatsProps{
     loginData?:any
   sendLoginData?:any;
 }
 
-const People:React.FC<PeopleProps> = ({
+const Stats:React.FC<StatsProps> = ({
   sendLoginData,
   loginData
-   }: PeopleProps) =>{
+   }: StatsProps) =>{
   const classes = useStyles();
 
     const responseFacebook = (response:any) => {
@@ -62,28 +61,21 @@ const People:React.FC<PeopleProps> = ({
         >
         <SideBar loginData={loginData}/>
         </Grid>
-      <Grid container item xs className={classes.containerGrid} alignItems='center' direction='column'>
-          <img src='Logos/sidebar-logo.png' alt='richpanel'/>
-          <Typography variant="h3" className={classes.headerText}>
-            Welcome to Richpanel
-          </Typography>
-          {/* <Paper className={classes.paper}>
+      <Grid container item xs className={classes.containerGrid} alignItems='center' justifyContent='center' direction='column'>
+          {/* <img src='Logos/sidebar-logo.png' alt='richpanel'/> */}
+          
+          <Paper className={classes.paper}>
             <div style={{display:'grid', alignItems:'center'}}>
-            <Typography style={{marginBottom:'12px'}}>
-                Log into Facebook Account
-            </Typography>
-            <FacebookLogin
-            appId="1054993238665007"
-            autoLoad={true}
-            fields="name,email,picture"
-            onClick={componentClicked}
-            callback={responseFacebook} />
+             <img src='graph.svg' alt='no graph' height='90%' width='90%'/>
+             <Typography variant='h5'>
+                 Oops! No Data Found
+             </Typography>
             </div>
-          </Paper> */}
+          </Paper>
       </Grid>
       </Grid>
 
     )
 }
 
-export default People
+export default Stats

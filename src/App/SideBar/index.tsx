@@ -6,6 +6,7 @@ import PersonPinIcon from '@mui/icons-material/PersonPin';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/system';
+import { useLocation } from 'react-router-dom';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -44,10 +45,22 @@ const SideBar:React.FC<SideBarProps> = ({
 loginData,
   }: SideBarProps) =>{
   const [value, setValue] = React.useState(0);
+  const [isActive,SetIsActive]=React.useState();
+  let location = useLocation();
 
   const handleChange = (event:any, newValue:any) => {
     setValue(newValue);
   };
+
+  const handleBackground=(path:any)=>{
+    if(location.pathname==path) return 'white';
+    else return '#0e5295';
+  }
+  
+  const HandleImageSrc=(path:string, src:string)=>{
+    if(location.pathname===path) return `Icons/${src}-blue.svg`;
+    else return `Icons/${src}-white.svg`;
+  }
 
     return (
       <Grid
@@ -64,9 +77,9 @@ loginData,
         }}
       >
         <Grid>
-          {/* <Link> */}
+          <Link to='/' style={{width:'inherit'}}>
           <img src="logos/sidebar-logo.png" alt="richpanel" width="75px" />
-          {/* </Link> */}
+          </Link>
         </Grid>
         {/* <Tabs
           orientation="vertical"
@@ -87,16 +100,21 @@ loginData,
             // style={{ width: "75px" }}
           />
         </Tabs> */}
-        
-        <div style={{background:'white',width:'inherit',height:"80px", alignItems:'center', justifyContent:'center', display:'flex' }} >
-          <img src="Icons/inbox-solid.svg" alt='inbox' width="40px" height="40px" />
+        <Link to='/chat' style={{width:'inherit'}}>
+        <div style={{background:handleBackground('/chat'), width:'inherit',height:"80px", alignItems:'center', justifyContent:'center', display:'flex' }} >
+          <img src={HandleImageSrc('/chat', 'inbox')} alt='inbox' width="40px" height="40px" />
         </div>
-        <div style={{background:'0e5295',width:'inherit',height:"80px", alignItems:'center', justifyContent:'center', display:'flex' }} >
-          <img src="Icons/user-friends-solid.svg" alt='inbox' width="40px" height="40px" />
+        </Link>
+        <Link to='/people' style={{width:'inherit'}}>
+        <div style={{background:handleBackground('/people'), width:'inherit',height:"80px", alignItems:'center', justifyContent:'center', display:'flex' }} >
+          <img src={HandleImageSrc('/people', 'people')} alt='inbox' width="40px" height="40px" />
         </div>
-        <div style={{background:'0e5295',width:'inherit',height:"80px", alignItems:'center', justifyContent:'center', display:'flex' }} >
-          <img src="Icons/chart-bar-regular.svg" alt='inbox' width="40px" height="40px" />
+        </Link>
+        <Link to='/stats' style={{width:'inherit'}}>
+        <div style={{background:handleBackground('/stats'),width:'inherit',height:"80px", alignItems:'center', justifyContent:'center', display:'flex' }} >
+          <img src={HandleImageSrc('/stats', 'chart')} alt='inbox' width="40px" height="40px" />
         </div>
+        </Link>
 
           
         <Grid item container xs alignItems="flex-end" justifyContent='center'>
