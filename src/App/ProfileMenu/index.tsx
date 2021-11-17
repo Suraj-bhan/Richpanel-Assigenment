@@ -1,8 +1,8 @@
-import { Avatar, Button, Grid, Paper, Tab, Tabs, Typography } from '@mui/material';
+import { Avatar, Button, Grid, Paper, Typography } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CallIcon from '@mui/icons-material/Call';
 import React, { useEffect, useState } from 'react';
-import { createStyles, makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import CircleIcon from '@mui/icons-material/Circle';
 import db from '../../FirebaseComp';
 import { useParams } from 'react-router';
@@ -11,9 +11,6 @@ const useStyles = makeStyles((theme) => ({
   containerGrid: {
     border:'0.5px solid rgba(0,0,0,0.2)',
     height:'100%'
-    // [theme.breakpoints.down('sm')]:{
-    //    background: 'linear-gradient(to bottom, #16222A, #3B6073)',
-    // }
   },
   profileGrid:{
     height:'250px',  
@@ -55,9 +52,6 @@ const useStyles = makeStyles((theme) => ({
   }
 
 }));
-
-
-
 
 function ProfileMenu() {
   const classes = useStyles();
