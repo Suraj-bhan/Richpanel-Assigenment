@@ -78,7 +78,7 @@ const ProfileMenu:React.FC<ProfileMenuProps> = ({
       else return 'rgba(0, 0, 0, 0.5)';
     }
     const handleOnlineText=()=>{
-      if(loginData && loginData.name===data.User){
+      if(loginData && data && loginData.name===data.User){
         return 'Online';
       }
       else return 'Offline';

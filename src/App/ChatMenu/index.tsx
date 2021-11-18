@@ -59,9 +59,12 @@ loginData,
       </Grid>
       <Grid item style={{overflow:'auto', height:`calc(100vh - 65px)`, position:'relative', width:'inherit'}} alignItems='flex-start'>
          <StartNewChat loginData={loginData}/>
-        {Converstions && Converstions.map((chat:any)=>(
-          <ChatPreview key={chat.id} id={chat.id} data={chat.data}/>
-        )
+        {Converstions && Converstions.map((chat:any)=>
+        <>
+         { ((chat.data.User==loginData.name) || (loginData.name=='Suraj Bhan Mundotiya')) &&(
+            <ChatPreview key={chat.id} id={chat.id} data={chat.data}/>)
+         }
+         </>
         )}
       </Grid>
     </Grid>
